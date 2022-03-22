@@ -14,9 +14,9 @@
 
 <clase_vector> ::= <tipo> <constante_entera> | <tipo> <constante_entera> <constante_entera>
 
-<identificadores> ::= <identificador> | <identificador> , <identificadores>
+<identificadores> ::= <identificador> | <identificador>  <identificadores>
 
-<funciones> ::=	<funcion> <funciones> 
+<funciones> ::=	<funcion> | <funcion> <funciones> 
 
 <funcion> ::= <tipo> <identificador> ( <parametros_funcion> ) <declaraciones_funcion> <sentencias> 
 
