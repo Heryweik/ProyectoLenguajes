@@ -1,4 +1,4 @@
-<programa> ::= <declaraciones> <funciones> <sentencias>
+<programa> ::= "Inicio" <declaraciones> <funciones> <sentencias> "Fin"
  
 <declaraciones> ::= <declaracion> | <declaracion> <declaraciones>
 
@@ -27,7 +27,7 @@
 <parametro_funcion> ::=	<tipo> <identificador>
 
 <declaraciones_funcion>	::= <declaraciones>
- 	
+
 <sentencias> ::= <sentencia> | <sentencia> ; <sentencias>
 
 <sentencia> ::= <asignacion> | <condicional> | <bucle> | <lectura_escritura> | <liberacion> | <retorno> | <seleccion>
