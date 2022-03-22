@@ -1,0 +1,87 @@
+<programa> ::= <declaraciones> <funciones> <sentencias>
+ 
+<declaraciones> ::= <declaracion> | <declaracion> <declaraciones>
+
+<declaracion> ::= <clase> <identificadores>;
+
+<clase> ::= <clase_escalar> | <clase_puntero> | <clase_vector>
+
+<tipo> ::= <ENTERO> | <LOGICO>
+
+<clase_escalar> ::= <tipo>
+
+<clase_puntero> ::= <tipo># | <clase_puntero>#
+
+<clase_vector> ::= <tipo> <constante_entera> | <tipo> <constante_entera> <constante_entera>
+
+<identificadores> ::= <identificador> | <identificador> , <identificadores>
+
+<funciones> ::=	<funcion> <funciones> 
+
+<funcion> ::= <tipo> <identificador> ( <parametros_funcion> ) <declaraciones_funcion> <sentencias> 
+
+<parametros_funcion> ::= <parametro_funcion> <resto_parametros_funcion> 
+	
+<resto_parametros_funcion> ::=  <parametro_funcion> <resto_parametros_funcion> 	
+
+<parametro_funcion> ::=	<tipo> <identificador>
+
+<declaraciones_funcion>	::= <declaraciones>
+ 	
+<sentencias> ::= <sentencia> | <sentencia> ; <sentencias>
+
+<sentencia> ::= <asignacion> | <condicional> | <bucle> | <lectura_escritura> | <liberacion> | <retorno> | <seleccion>
+
+<seleccion> ::=	( <exp> ) <casos_seleccion> 
+
+<casos_seleccion> ::= <casos_estandar> <caso_defecto>
+
+<casos_estandar> ::= <caso_estandar> | <casos_estandar> <caso_estandar>
+
+<caso_estandar> ::= <constante_entera> : <sentencias>
+
+<caso_defecto> ::= <sentencias>
+
+<retorno> ::= <exp>
+
+<asignacion> ::= <identificador> = <exp> | <elemento_vector> = <exp> | <acceso> = <exp> | <identificador> = RESERVAR | <identificador> = <- <identificador>
+
+<elemento_vector> ::= <identificador> [ <exp> ] | <identificador> [ <exp> , <exp> ]
+
+<condicional> ::= <exp> <sentencias>  | <exp> <sentencias> <sentencias> 
+
+<bucle> ::= <exp> <sentencias> | <identificador> = <exp> <exp> <sentencias>
+
+<lectura_escritura> ::= <identificador> | <elemento_vector> | <exp>
+
+<liberacion> ::= <identificador>
+
+<acceso> ::= -> <identificador> | -> <acceso>
+
+<exp> ::= <exp> + <exp> | <exp> - <exp> | <exp> / <exp> | <exp> * <exp> | - <exp> | <exp> Y <exp> | <exp> O <exp> 
+          | NO <exp> | <identificador> | <constante> | ( <exp> ) | ( <comparacion> ) | <acceso> | <elemento_vector> | <identificador> ( <lista_exp> )
+
+<lista_exp> ::=	<exp> <resto_lista_exp> 
+	
+<resto_lista_exp> ::= , <exp> <resto_lista_exp> 
+	
+<comparacion> ::= <exp> == <exp> | <exp> != <exp> | <exp> <= <exp> | <exp> >= <exp> | <exp> < <exp> | <exp> > <exp>
+
+<constante> ::= <constante_logica> | <constante_entera>
+
+<constante_logica> ::= <VERDADERO> | <FALSO>
+
+<constante_entera> ::= <numero>
+
+<numero> ::= <digito> | <numero> <digito>
+
+<identificador> ::= <letra> | <letra> <cola_identificador>
+
+<cola_identificador> ::= <alfanumerico> | <alfanumerico> <cola_identificador>
+
+<alfanumerico> ::= <letra> | <digito>
+
+<letra> ::= a | b | c | d | e | f | g | h | i | j | k | l | m | n | o | p | q | r | s | t | u | v | w | x | y | z 
+          | A | B | C | D | E | F | G | H | I | J | K | L | M | N | O | P | Q | R | S | T | U | V | W | X | Y | Z
+
+<digito> ::= 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 
