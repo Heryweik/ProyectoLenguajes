@@ -1,17 +1,35 @@
-<programa> ::= 
+<programa_final> ::= <programa_sin_funciones> | <programa_con_funciones>
 
-<funcion> ::= "SubAlgoritmo" <tipo> <identificador> "(" <parametros_funcion> ")" "{"
-                <sentencias>  "}" "FinSubAlgoritmo"
+<programa_con_funciones> ::= <programa_sin_funciones > <funcion>
 
-<parametros_funcion> ::= <parametro_funcion> | <parametros_funcion> "," <parametro_funcion>
+<programa_sin_funciones> ::= "Algoritmo" <identificador> "{"
+                    "Principal" "(" ")" "{" <declaraciones> <sentencias> "}" "FinAlgoritmo"
+
+<funcion> ::= <funcion_con_parametros> | <funcion_sin_parametros>
+
+<funcion_con_parametros> ::= "SubAlgoritmo" <tipo> <identificador> "(" <parametros_funcion> ")" "{"
+                <declaraciones><sentencias>  "}" "FinSubAlgoritmo"
+
+<funcion_sin_parametros> ::= "SubAlgoritmo" <tipo> <identificador> "(" ")" "{"
+                <declaraciones><sentencias>  "}" "FinSubAlgoritmo"
+
+<parametros_funcion> ::= <parametro> | <parametros_funcion> "," <parametro>
 
 <parametro> ::= <tipo> <identificador>
 
+<declaraciones> ::= <declaracion> | <declaraciones> <declaracion>
+
+<declaracion> ::= <tipo> <identificador> ";" | <tipo> <identificador> "=" <exp> ";"
+
 <sentencias> ::= <sentencia> ";" | <sentencias> <sentencia>
 
-<sentencia> ::= <asignacion> | <condicional>| <bucle> | <entrada> | <salida> | <retorno> | <seleccion>
+<sentencia> ::= <asignacion> | <condicional>| <bucle> | <entrada> | <salida> | <retorno> | <seleccion> | <llamada_funcion>
 
-<asignacion> ::= <identificador> "=" <exp> ";" | <identificador> "=" <identificador> ";"
+<llamada_funcion> ::= <identificador> "(" ")" ";" | <identificador> "(" <parametros_llamada> ")" ";"
+
+<parametros_llamada> ::= <valor_identificador> | <parametros_llamada> "," <valor_identificador>
+
+<asignacion> ::= <identificador> "=" <exp> ";"
 
 <bucle> ::= <bucle_hacer_mientras> | <bucle_mientras> | <bucle_para>
 
@@ -33,8 +51,54 @@
 
 <caso_defecto> ::= "Defecto" ":" <sentencias>
 
+<entrada> ::= "Entrada" <exp> ";"
+
+<salida> ::= "Salida" <valor_identificador> ";"
+
 <inicializacion_para> ::= "Entero" <identificador> "=" <enteros> | "Real" <identificador> "=" <reales>
 
 <incremento_para> ::= <identificador> <operador_autoincremento> | <exp>
 
 <operador_autoincremento> ::= "++" | "--"
+
+<exp> ::= <operacion_aritmetica> | <operacion_logica> | <identificador> | <constatnte> | <valor_identificador> | <comparacion> | <exp> | <cadena> | <num_real> | <entrada>
+
+<operacion_aritmetica> ::= <num_real> <operador> <num_real> | <operacion_aritmetica> <operador> <num_real> | <operacion_aritmetica> <operador> <operacion_aritmetica>
+
+<constante> ::= <constante_logica> | <constante_real> | <constante_cadena>
+
+<constante_logica> ::= <identificador> := <valor_logico>
+
+<constante_real> ::= <identificador> := <num_real>
+
+<constante_cadena> ::= <identificador> := <cadena>
+
+<comparacion> ::= <exp> <operador_comparacion> <expresion>
+
+<valor_logico> ::= "Verdadero" | "Falso"
+
+<cadena> ::= <letra> | <cadena> <letra> | <cadena> <digito>
+
+<identificador> ::= <letra> | <identificador> <letra> | <identificador> <digito>
+
+<operacion_logica> ::= <exp> <operador_logico> <exp>
+
+<num_real> ::= <signo> <num_natural> | <num_real> "." <num_natural>
+
+<num_natural> ::= <digito> | <num_natural> <digito>
+
+<valor_identificador> ::= <identificador> := <exp>
+
+<tipo> ::= "Entero" | "Real" | "Cadena" | "Booleano" |  "Caracter"
+
+<digito> ::= "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9"
+
+<letra> ::- "a" | "b" | "c" | "d" | "e" | "f" | "g" | "h" | "i" | "j" | "k" | "l" | "m" | "n" | "o" | "p" | "q" | "r" | "s" | "t" | "u" | "v" | "w" | "x" | "y" | "z" | "A" | "B" | "C" | "D" | "E" | "F" | "G" | "H" | "I" | "J" | "K" | "L" | "M" | "N" | "O" | "P" | "Q" | "R" | "S" | "T" | "U" | "V" | "W" | "X" | "Y" | "Z" 
+
+<signo> ::= "+" | "-"
+
+<operador> ::= "+" | "-" | "/" | "*" | "^" | "%"
+
+<operador_logico> ::= "||" | "&&" 
+
+<operador_comparacion> ::= "==" | "<>" | "<=" | ">=" | "<" | ">"
