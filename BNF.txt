@@ -19,7 +19,9 @@
 
 <declaraciones> ::= <declaracion> | <declaraciones> <declaracion>
 
-<declaracion> ::= <tipo> <identificador> ";" | <tipo> <identificador> "=" <exp> ";"
+<declaracion> ::= <tipo> <identificadores> ";" | <tipo> <identificador> "=" <exp> ";"
+
+<identificadores> ::= <identificador> | <identificador> , <identificadores>
 
 <sentencias> ::= <sentencia> ";" | <sentencias> <sentencia>
 
