@@ -21,7 +21,7 @@
 
 <declaracion> ::= <tipo> <identificadores> ";" | <tipo> <identificador> "=" <exp> ";"
 
-<identificadores> ::= <identificador> | <identificador> , <identificadores>
+<identificadores> ::= <identificador> | <identificador> "," <identificadores>
 
 <sentencias> ::= <sentencia> ";" | <sentencias> <sentencia>
 
