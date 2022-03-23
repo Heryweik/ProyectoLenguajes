@@ -3,7 +3,7 @@
 <programa_con_funciones> ::= <programa_sin_funciones > <funcion>
 
 <programa_sin_funciones> ::= "Algoritmo" <identificador> "{"
-                    "Principal" "(" ")" "{" <declaraciones> <sentencias> "}" "FinAlgoritmo"
+                    "Principal" "(" ")" "{" <declaraciones> <sentencias> "}" "}FinAlgoritmo"
 
 <funcion> ::= <funcion_con_parametros> | <funcion_sin_parametros>
 
