@@ -5,17 +5,36 @@
 
 <parametros_funcion> ::= <parametro_funcion> | <parametros_funcion> "," <parametro_funcion>
 
-<parametro_funcion> ::= <tipo> <identificador>
+<parametro> ::= <tipo> <identificador>
 
 <sentencias> ::= <sentencia> ";" | <sentencias> <sentencia>
 
-<sentencia> ::= <asignacion> | <condicional>| <bucle> | <lectura_escritura> | <retorno> | <seleccion>
+<sentencia> ::= <asignacion> | <condicional>| <bucle> | <entrada> | <salida> | <retorno> | <seleccion>
 
 <asignacion> ::= <identificador> "=" <exp> ";" | <identificador> "=" <identificador> ";"
+
+<bucle> ::= <bucle_hacer_mientras> | <bucle_mientras> | <bucle_para>
+
+<bucle_mientras> ::= "Mientras" "(" <exp> ")" "{" <sentencias> "}" "FinMientras"
+
+<bucle_hacer_mientras> ::= "Hacer" "{" <sentencias> "}" "Mientras" "(" <exp> ")" ";"
+
+<bucle_para> ::= "Para" "(" <inicializacion_para> ";" <exp> ";" <incremento_para> ")"
+                    "{"  <sentencias> "}" "FinPara"
 
 <condicion> ::= "Si" "(" <exp> ")" "{" <sentencias> "}" "FinSi" |
                 "Si" "(" <exp> ")" "{" <sentencias> "}" "Sino" "{" <sentencias> "}" "FinSi"
 
-<bucle> ::= <bucle_hacer_mientras> | <bucle_mientras> | <bucle_para>
+<decision_casos> ::= "Segun" "(" <identificador> ")" "{" <casos> "}" "FinSegun"
 
-<bucle_mientras> ::= "Mientras" "(" <exp> ")" "{" <sentencias> "}"
+<casos> ::= <caso_estandar> | <casos> <caso_estandar> | <casos> <caso_defecto>
+
+<caso_estandar> ::= "Caso" <valor_identificador> ":" <sentencias> "Detener" ";"
+
+<caso_defecto> ::= "Defecto" ":" <sentencias>
+
+<inicializacion_para> ::= "Entero" <identificador> "=" <enteros> | "Real" <identificador> "=" <reales>
+
+<incremento_para> ::= <identificador> <operador_autoincremento> | <exp>
+
+<operador_autoincremento> ::= "++" | "--"
