@@ -1,0 +1,97 @@
+<gramatica> ::= <programa>
+
+<programa> ::= <funcion_principal> <funcion> | <programa> <funcion>
+
+<funcion_principal> ::= <declaraciones> 
+                        "Algoritmo" "(" ")" "{" <llamada_funcion> "}" "FinAlgoritmo"
+
+<funcion> ::= "SubAlgoritmo" <identificador> "(" ")" "{"
+                <sentencias>  "}" "FinSubAlgoritmo"
+
+<declaraciones> ::= <declaracion> | <declaraciones> <declaracion>
+
+<declaracion> ::= <tipo> <identificadores> ";" | <tipo> <identificador> "=" <exp> ";"
+
+<identificadores> ::= <identificador> | <identificador> "," <identificadores>
+
+<sentencias> ::= <sentencia> ";" | <sentencias> <sentencia>
+
+<sentencia> ::= <asignacion> | <condicional>| <bucle> | <entrada> | <salida> | <retorno> | <seleccion>
+
+<llamada_funcion> ::= <identificador> "(" ")" ";"
+
+<parametros_llamada> ::= <valor_identificador> | <parametros_llamada> "," <valor_identificador>
+
+<asignacion> ::= <identificador> "=" <exp> ";"
+
+<bucle> ::= <bucle_hacer_mientras> | <bucle_mientras> | <bucle_para>
+
+<bucle_mientras> ::= "Mientras" "(" <exp> ")" "{" <sentencias> "}" "FinMientras"
+
+<bucle_hacer_mientras> ::= "Hacer" "{" <sentencias> "}" "Mientras" "(" <exp> ")" ";"
+
+<bucle_para> ::= "Para" "(" <inicializacion_para> ";" <exp> ";" <incremento_para> ")"
+                    "{"  <sentencias> "}" "FinPara"
+
+<condicion> ::= "Si" "(" <exp> ")" "{" <sentencias> "}" "FinSi" |
+                "Si" "(" <exp> ")" "{" <sentencias> "}" "Sino" "{" <sentencias> "}" "FinSi"
+
+<decision_casos> ::= "Segun" "(" <identificador> ")" "{" <casos> "}" "FinSegun"
+
+<casos> ::= <caso_estandar> | <casos> <caso_estandar> | <casos> <caso_defecto>
+
+<caso_estandar> ::= "Caso" <valor_identificador> ":" <sentencias> "Detener" ";"
+
+<caso_defecto> ::= "Defecto" ":" <sentencias>
+
+<entrada> ::= "Entrada" <exp> ";"
+
+<salida> ::= "Salida" <valor_identificador> ";"
+
+<inicializacion_para> ::= "Entero" <identificador> "=" <enteros> | "Real" <identificador> "=" <reales>
+
+<incremento_para> ::= <identificador> <operador_autoincremento> | <exp>
+
+<operador_autoincremento> ::= "++" | "--"
+
+<exp> ::= <operacion_aritmetica> | <operacion_logica> | <identificador> | <constatnte> | <valor_identificador> | <comparacion> | <exp> | <cadena> | <num_real> | <entrada>
+
+<operacion_aritmetica> ::= <num_real> <operador> <num_real> | <operacion_aritmetica> <operador> <num_real> | <operacion_aritmetica> <operador> <operacion_aritmetica>
+
+<constante> ::= <constante_logica> | <constante_real> | <constante_cadena>
+
+<constante_logica> ::= <identificador> := <valor_logico>
+
+<constante_real> ::= <identificador> := <num_real>
+
+<constante_cadena> ::= <identificador> := <cadena>
+
+<comparacion> ::= <exp> <operador_comparacion> <expresion>
+
+<valor_logico> ::= "Verdadero" | "Falso"
+
+<cadena> ::= <letra> | <cadena> <letra> | <cadena> <digito>
+
+<identificador> ::= <letra> | <identificador> <letra> | <identificador> <digito>
+
+<operacion_logica> ::= <exp> <operador_logico> <exp>
+
+<num_real> ::= <signo> <num_natural> | <num_real> "." <num_natural>
+
+<num_natural> ::= <digito> | <num_natural> <digito>
+
+<valor_identificador> ::= <identificador> := <exp>
+
+<tipo> ::= "Entero" | "Real" | "Cadena" | "Booleano" |  "Caracter"
+
+<digito> ::= "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9"
+
+<letra> ::- "a" | "b" | "c" | "d" | "e" | "f" | "g" | "h" | "i" | "j" | "k" | "l" | "m" | "n" | "o" | "p" | "q" | "r" | "s" | "t" | "u" | "v" | "w" | "x" | "y" | "z" | "A" | "B" | "C" | "D" | "E" | "F" | "G" | "H" | "I" | "J" | "K" | "L" | "M" | "N" | "O" | "P" | "Q" | "R" | "S" | "T" | "U" | "V" | "W" | "X" | "Y" | "Z" 
+
+<signo> ::= "+" | "-"
+
+<operador> ::= "+" | "-" | "/" | "*" | "^" | "%"
+
+<operador_logico> ::= "||" | "&&" 
+
+<operador_comparacion> ::= "==" | "<>" | "<=" | ">=" | "<" | ">"
