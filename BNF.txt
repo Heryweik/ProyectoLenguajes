@@ -2,7 +2,8 @@
 
 <programa> ::= <funcion_principal> <funcion> | <programa> <funcion>
 
-<funcion_principal> ::= "Algoritmo" "(" ")" "{" <llamada_funcion> "}" "FinAlgoritmo"
+<funcion_principal> ::= <declaraciones> 
+                        "Algoritmo" "(" ")" "{" <llamada_funcion> "}" "FinAlgoritmo"
 
 <funcion> ::= "SubAlgoritmo" <identificador> "(" ")" "{"
                 <sentencias>  "}" "FinSubAlgoritmo"
