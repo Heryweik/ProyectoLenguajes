@@ -1,21 +1,11 @@
-<programa_final> ::= <programa_sin_funciones> | <programa_con_funciones>
+<gramatica> ::= <programa>
 
-<programa_con_funciones> ::= <programa_sin_funciones > <funcion>
+<programa> ::= <funcion_principal> <funcion> | <programa> <funcion>
 
-<programa_sin_funciones> ::= "Algoritmo" <identificador> "{"
-                    "Principal" "(" ")" "{" <declaraciones> <sentencias> "}" "}" "FinAlgoritmo"
+<funcion_principal> ::= "Algoritmo" "(" ")" "{" <llamada_funcion> "}" "FinAlgoritmo"
 
-<funcion> ::= <funcion_con_parametros> | <funcion_sin_parametros>
-
-<funcion_con_parametros> ::= "SubAlgoritmo" <tipo> <identificador> "(" <parametros_funcion> ")" "{"
-                <declaraciones><sentencias>  "}" "FinSubAlgoritmo"
-
-<funcion_sin_parametros> ::= "SubAlgoritmo" <tipo> <identificador> "(" ")" "{"
-                <declaraciones><sentencias>  "}" "FinSubAlgoritmo"
-
-<parametros_funcion> ::= <parametro> | <parametros_funcion> "," <parametro>
-
-<parametro> ::= <tipo> <identificador>
+<funcion> ::= "SubAlgoritmo" <identificador> "(" ")" "{"
+                <sentencias>  "}" "FinSubAlgoritmo"
 
 <declaraciones> ::= <declaracion> | <declaraciones> <declaracion>
 
@@ -25,9 +15,9 @@
 
 <sentencias> ::= <sentencia> ";" | <sentencias> <sentencia>
 
-<sentencia> ::= <asignacion> | <condicional>| <bucle> | <entrada> | <salida> | <retorno> | <seleccion> | <llamada_funcion>
+<sentencia> ::= <asignacion> | <condicional>| <bucle> | <entrada> | <salida> | <retorno> | <seleccion>
 
-<llamada_funcion> ::= <identificador> "(" ")" ";" | <identificador> "(" <parametros_llamada> ")" ";"
+<llamada_funcion> ::= <identificador> "(" ")" ";"
 
 <parametros_llamada> ::= <valor_identificador> | <parametros_llamada> "," <valor_identificador>
 
