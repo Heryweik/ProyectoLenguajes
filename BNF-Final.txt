@@ -48,21 +48,21 @@
 
 <salida> ::= "Salida" <valor_identificador> ";"
 
-<inicializacion_para> ::= "Entero" <identificador> "=" <enteros> | "Real" <identificador> "=" <reales>
+<inicializacion_para> ::= "Entero" <identificador> "=" <num_entero>
 
 <incremento_para> ::= <identificador> <operador_autoincremento> | <exp>
 
 <operador_autoincremento> ::= "++" | "--"
 
-<exp> ::= <operacion_aritmetica> | <operacion_logica> | <identificador> | <constatnte> | <valor_identificador> | <comparacion> | <exp> | <cadena> | <num_real> | <entrada>
+<exp> ::= <operacion_aritmetica> | <operacion_logica> | <identificador> | <constatnte> | <valor_identificador> | <comparacion> | <exp> | <cadena> | <num_entero> | <entrada>
 
-<operacion_aritmetica> ::= <num_real> <operador> <num_real> | <operacion_aritmetica> <operador> <num_real> | <operacion_aritmetica> <operador> <operacion_aritmetica>
+<operacion_aritmetica> ::= <num_entero> <operador> <num_entero> | <operacion_aritmetica> <operador> <num_entero> | <operacion_aritmetica> <operador> <operacion_aritmetica>
 
 <constante> ::= <constante_logica> | <constante_real> | <constante_cadena>
 
 <constante_logica> ::= <identificador> := <valor_logico>
 
-<constante_real> ::= <identificador> := <num_real>
+<constante_real> ::= <identificador> := <num_entero>
 
 <constante_cadena> ::= <identificador> := <cadena>
 
@@ -76,13 +76,13 @@
 
 <operacion_logica> ::= <exp> <operador_logico> <exp>
 
-<num_real> ::= <signo> <num_natural> | <num_real> "." <num_natural>
+<num_entero> ::= <signo> <num_natural> | <num_entero> "." <num_natural>
 
 <num_natural> ::= <digito> | <num_natural> <digito>
 
 <valor_identificador> ::= <identificador> := <exp>
 
-<tipo> ::= "Entero" | "Real" | "Cadena" | "Booleano" |  "Caracter"
+<tipo> ::= "Entero" | "Cadena" | "Booleano" |  "Caracter"
 
 <digito> ::= "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9"
 
