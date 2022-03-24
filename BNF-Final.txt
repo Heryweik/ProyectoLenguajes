@@ -16,7 +16,7 @@
 
 <sentencias> ::= <sentencia> ";" | <sentencias> <sentencia>
 
-<sentencia> ::= <asignacion> | <condicional>| <bucle> | <entrada> | <salida> | <retorno> | <seleccion>
+<sentencia> ::= <asignacion> | <condicion>| <bucle> | <entrada> | <salida> | <decision_casos> | <exp>
 
 <llamada_funcion> ::= <identificador> "(" ")" ";"
 
@@ -54,7 +54,7 @@
 
 <operador_autoincremento> ::= "++" | "--"
 
-<exp> ::= <operacion_aritmetica> | <operacion_logica> | <identificador> | <constatnte> | <valor_identificador> | <comparacion> | <exp> | <cadena> | <num_entero> | <entrada>
+<exp> ::= <operacion_aritmetica> | <operacion_logica> | <identificador> | <constante> | <valor_identificador> | <comparacion> | <exp> | <cadena> | <num_entero> | <entrada>
 
 <operacion_aritmetica> ::= <num_entero> <operador> <num_entero> | <operacion_aritmetica> <operador> <num_entero> | <operacion_aritmetica> <operador> <operacion_aritmetica>
 
@@ -66,7 +66,7 @@
 
 <constante_cadena> ::= <identificador> := <cadena>
 
-<comparacion> ::= <exp> <operador_comparacion> <expresion>
+<comparacion> ::= <exp> <operador_comparacion> <exp>
 
 <valor_logico> ::= "Verdadero" | "Falso"
 
